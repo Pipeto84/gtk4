@@ -1,5 +1,6 @@
 mod window;
 use window::Window;
+mod custom_button;
 use gtk::prelude::*;
 use gtk::{glib,gio, Application};
 const APP_ID: &str = "org.gtk_rs.pipeto";
@@ -12,8 +13,6 @@ fn main() -> glib::ExitCode {
     app.run()
 }
 fn build_ui(app: &Application) {
-
     let window=Window::new(app);
-
     window.present();
 }
