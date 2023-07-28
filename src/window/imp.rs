@@ -9,7 +9,9 @@ use crate::custom_button::CustomButton;
 #[template(resource="/org/gtk_rs/example/window.ui")]
 pub struct Window{
     #[template_child]
-    pub button: TemplateChild<CustomButton>,
+    pub button1: TemplateChild<CustomButton>,
+    #[template_child]
+    pub button2: TemplateChild<CustomButton>,
     // pub number: Cell<i32>,
 }
 #[glib::object_subclass]
@@ -28,8 +30,12 @@ impl ObjectSubclass for Window {
 #[gtk::template_callbacks]
 impl Window {
     #[template_callback]
-    fn handle_button_clicked(button:&CustomButton) {
+    fn handle_button1_clicked(button:&CustomButton) {
         button.set_label("hola pipeto");
+    }
+    #[template_callback]
+    fn handle_button2_clicked(button:&CustomButton) {
+        button.set_label("hola pipe");
     }
 }
 impl ObjectImpl for Window {}

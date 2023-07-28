@@ -1,6 +1,6 @@
 mod window;
 use window::Window;
-mod custom_button;
+pub mod custom_button;
 use gtk::prelude::*;
 use gtk::{glib,gio, Application};
 const APP_ID: &str = "org.gtk_rs.pipeto";
