@@ -8,7 +8,7 @@
         <property name="spacing">4</property>    
         <child>
           <object class="MyGtkAppCustomButton" id="button1">
-            <signal name="clicked" handler="handle_button1_clicked"/>
+            <signal name="clicked" handler="handle_button1_clicked" swapped="true"/>
             <property name="label">Press me!</property>
             <property name="margin-top">12</property>
             <property name="margin-bottom">12</property>
@@ -18,7 +18,7 @@
         </child>
         <child>
           <object class="MyGtkAppCustomButton" id="button2">
-            <signal name="clicked" handler="handle_button2_clicked"/>
+            <signal name="clicked" handler="handle_button2_clicked" swapped="true"/>
             <property name="label">Press me too!</property>
             <property name="margin-top">12</property>
             <property name="margin-bottom">12</property>

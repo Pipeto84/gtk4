@@ -3,16 +3,17 @@ use gtk::prelude::*;
 use gtk::subclass::prelude::*;
 use gtk::{glib, CompositeTemplate};
 use crate::custom_button::CustomButton;
-// use std::cell::Cell;
+use std::cell::Cell;
 
 #[derive(CompositeTemplate,Default)]
 #[template(resource="/org/gtk_rs/example/window.ui")]
 pub struct Window{
     #[template_child]
     pub button1: TemplateChild<CustomButton>,
+    pub number1: Cell<i32>,
     #[template_child]
     pub button2: TemplateChild<CustomButton>,
-    // pub number: Cell<i32>,
+    pub number2: Cell<i32>,
 }
 #[glib::object_subclass]
 impl ObjectSubclass for Window {
@@ -30,12 +31,16 @@ impl ObjectSubclass for Window {
 #[gtk::template_callbacks]
 impl Window {
     #[template_callback]
-    fn handle_button1_clicked(button:&CustomButton) {
-        button.set_label("hola pipeto");
+    fn handle_button1_clicked(&self,button:&CustomButton) {
+        let aumentar=self.number1.get()+1;
+        self.number1.set(aumentar);
+        button.set_label(&aumentar.to_string());
     }
     #[template_callback]
-    fn handle_button2_clicked(button:&CustomButton) {
-        button.set_label("hola pipe");
+    fn handle_button2_clicked(&self,button:&CustomButton) {
+        let aumentar=self.number2.get()+1;
+        self.number2.set(aumentar);
+        button.set_label(&aumentar.to_string());
     }
 }
 impl ObjectImpl for Window {}
