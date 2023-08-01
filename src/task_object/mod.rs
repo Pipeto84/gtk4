@@ -13,7 +13,6 @@ impl TaskObject {
             .build()
     }
 }
-
 #[derive(Default)]
 pub struct TaskData{
     pub completed:bool,

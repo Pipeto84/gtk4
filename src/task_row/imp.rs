@@ -3,7 +3,7 @@ use gtk::{subclass::prelude::*,glib,CheckButton,CompositeTemplate,Label};
 use glib::Binding;
 
 #[derive(Default,CompositeTemplate)]
-#[template(resource="/org/gtk_rs/example/task_row.ui")]
+#[template(resource="/org/gtk_rs/Todo1/task_row.ui")]
 pub struct TaskRow{
     #[template_child]
     pub completed_button:TemplateChild<CheckButton>,
@@ -17,11 +17,11 @@ impl ObjectSubclass for TaskRow {
     type Type = super::TaskRow;
     type ParentType = gtk::Box;
 
-    fn class_init(_klass: &mut Self::Class) {
-        _klass.bind_template();
+    fn class_init(klass: &mut Self::Class) {
+        klass.bind_template();
     }
-    fn instance_init(_obj: &glib::subclass::InitializingObject<Self>) {
-        _obj.init_template();
+    fn instance_init(obj: &glib::subclass::InitializingObject<Self>) {
+        obj.init_template()
     }
 }
 impl ObjectImpl for TaskRow {}

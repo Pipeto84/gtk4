@@ -1,9 +1,10 @@
 mod window;
+mod task_object;
+mod task_row;
 use window::Window;
-pub mod custom_button;
 use gtk::prelude::*;
 use gtk::{glib,gio, Application};
-const APP_ID: &str = "org.gtk_rs.pipeto";
+const APP_ID: &str = "org.gtk_rs.Pipeto";
 
 fn main() -> glib::ExitCode {
     gio::resources_register_include!("pipeto.gresource")
