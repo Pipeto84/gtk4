@@ -1,10 +1,8 @@
 mod imp;
 
 use glib::{clone, Object};
-use gtk::subclass::prelude::*;
-use gtk::{gio, glib, Application, NoSelection, SignalListItemFactory};
-use gtk::{prelude::*, ListItem};
-
+use gtk::{gio, glib, Application, NoSelection, SignalListItemFactory,
+        prelude::*,subclass::prelude::*,ListItem};
 use crate::task_object::TaskObject;
 use crate::task_row::TaskRow;
 
@@ -77,7 +75,7 @@ impl Window {
                 .expect("tiene que ser TaskRow");
             task_row.bind(&task_object);
         });
-        factory.connect_unbind(move|_,list_item|{//println!("connect_unbind");
+        factory.connect_unbind(move|_,list_item|{
             let task_row=list_item
                 .downcast_ref::<ListItem>()
                 .expect("tiene que ser ListItem")

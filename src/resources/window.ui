@@ -13,7 +13,7 @@
         <property name="spacing">6</property>
         <child>
           <object class="GtkEntry" id="entry">
-            <property name="placeholder-text" translatable="yes">Entra una tarea</property>
+            <property name="placeholder-text" translatable="yes">Entra una tarea...</property>
             <property name="secondary-icon-name">list-add-symbolic</property>
           </object>
         </child>

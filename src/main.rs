@@ -2,8 +2,7 @@ mod window;
 mod task_object;
 mod task_row;
 use window::Window;
-use gtk::prelude::*;
-use gtk::{glib,gio, Application};
+use gtk::{glib,gio, Application,prelude::*};
 const APP_ID: &str = "org.gtk_rs.Pipeto";
 
 fn main() -> glib::ExitCode {

@@ -5,7 +5,7 @@ use gtk::subclass::prelude::*;
 use gtk::{gio, glib, CompositeTemplate, Entry, ListView};
 
 #[derive(CompositeTemplate, Default)]
-#[template(resource = "/org/gtk_rs/Todo1/window.ui")]
+#[template(resource = "/org/gtk_rs/Recursos/window.ui")]
 pub struct Window {
     #[template_child]
     pub entry: TemplateChild<Entry>,
