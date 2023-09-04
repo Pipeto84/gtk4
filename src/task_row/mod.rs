@@ -1,10 +1,8 @@
 mod imp;
 
-use glib::Object;
-use gtk::prelude::*;
-use gtk::subclass::prelude::*;
-use gtk::{glib, pango};
+use gtk::{prelude::*,subclass::prelude::*,glib, pango};
 use pango::{AttrInt, AttrList};
+use glib::Object;
 
 use crate::task_object::TaskObject;
 

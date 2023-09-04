@@ -1,8 +1,6 @@
 use std::cell::RefCell;
-use glib::{Properties,ParamSpec,Value};
-use gtk::glib;
-use gtk::prelude::*;
-use gtk::subclass::prelude::*;
+use glib::Properties;
+use gtk::{glib,prelude::*,subclass::prelude::*};
 use super::TaskData;
 
 #[derive(Properties, Default)]
@@ -17,14 +15,5 @@ impl ObjectSubclass for TaskObject {
     const NAME: &'static str = "TodoTaskObject";
     type Type = super::TaskObject;
 }
-impl ObjectImpl for TaskObject {
-    fn properties() -> &'static [ParamSpec] {
-        Self::derived_properties()
-    }
-    fn set_property(&self, id: usize, value: &Value, pspec: &ParamSpec) {
-        self.derived_set_property(id, value, pspec)
-    }
-    fn property(&self, id: usize, pspec: &ParamSpec) -> Value {
-        self.derived_property(id, pspec)
-    }
-}
+#[glib::derived_properties]
+impl ObjectImpl for TaskObject {}
