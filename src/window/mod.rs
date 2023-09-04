@@ -1,11 +1,12 @@
 mod imp;
-
+use std::fs::File;
 use glib::{clone, Object};
 use gio::Settings;
 use gtk::{gio, glib, Application, NoSelection, SignalListItemFactory,prelude::*,subclass::prelude::*,ListItem,
         CustomFilter,FilterListModel};
-use crate::task_object::TaskObject;
+use crate::task_object::{TaskObject, TaskData};
 use crate::task_row::TaskRow;
+use crate::utils::data_path;
 use crate::APP_ID;
 
 glib::wrapper! {
@@ -74,6 +75,17 @@ impl Window {
                 filter_model.set_filter(window.filter().as_ref());
             }),
         );
+    }
+    fn restore_data(&self) {
+        if let Ok(file) = File::open(data_path()) {
+            let backup_data:Vec<TaskData>=serde_json::from_reader(file)
+                .expect("Deberia ser posible leer backup_data del archivo json");
+            let task_objects:Vec<TaskObject>=backup_data
+                .into_iter()
+                .map(TaskObject::from_task_data)
+                .collect();
+            self.tasks().extend_from_slice(&task_objects);
+        }
     }
     fn setup_callbacks(&self) {
         self.imp()
