@@ -25,6 +25,7 @@ impl ObjectSubclass for Window {
 
     fn class_init(klass: &mut Self::Class) {
         klass.bind_template();
+        klass.set_css_name("window");
     }
     fn instance_init(obj: &InitializingObject<Self>) {
         obj.init_template();

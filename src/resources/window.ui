@@ -31,6 +31,9 @@
   <template class="TodoWindow" parent="GtkApplicationWindow">
     <property name="width-request">360</property>
     <property name="title" translatable="yes">To-Do</property>
+    <style>
+      <class name="frame"/>
+    </style>
     <child type="titlebar">
       <object class="GtkHeaderBar">
         <child type="end">
@@ -63,6 +66,10 @@
             <child>
               <object class="GtkListView" id="tasks_list">
                 <property name="valign">start</property>
+                <style>
+                  <class name="frame"/>
+                  <class name="separators"/>
+                </style>
               </object>
             </child>
           </object>
