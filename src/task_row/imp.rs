@@ -19,6 +19,7 @@ impl ObjectSubclass for TaskRow {
 
     fn class_init(klass: &mut Self::Class) {
         klass.bind_template();
+        klass.set_css_name("task-row");
     }
     fn instance_init(obj: &glib::subclass::InitializingObject<Self>) {
         obj.init_template()
