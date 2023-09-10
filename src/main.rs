@@ -21,7 +21,7 @@ fn main() -> glib::ExitCode {
 fn load_css() {
     let provider = CssProvider::new();
     provider.load_from_resource("/org/gtk_rs/Todo1/style.css");
-
+    println!("holla ") ;
     gtk::style_context_add_provider_for_display(
         &Display::default().expect("Could not connect to a display."),
         &provider,
