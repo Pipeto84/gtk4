@@ -2,7 +2,7 @@ mod imp;
 use std::fs::File;
 use glib::{clone, Object};
 use gio::Settings;
-use gtk::{gio, glib, Application, NoSelection, SignalListItemFactory,prelude::*,subclass::prelude::*,ListItem,
+use gtk::{gio, glib, NoSelection, SignalListItemFactory,prelude::*,subclass::prelude::*,ListItem,
         CustomFilter,FilterListModel};
 use crate::task_object::{TaskObject, TaskData};
 use crate::task_row::TaskRow;
@@ -16,7 +16,7 @@ glib::wrapper! {
                     gtk::ConstraintTarget, gtk::Native, gtk::Root, gtk::ShortcutManager;
 }
 impl Window {
-    pub fn new(app: &Application) -> Self {
+    pub fn new(app: &adw::Application) -> Self {
         Object::builder().property("application", app).build()
     }
     fn setup_settings(&self) {
